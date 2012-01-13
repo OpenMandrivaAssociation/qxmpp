@@ -2,6 +2,12 @@
 %define major	1
 %define libname	%mklibname %{name} %{major}
 
+%if %{mdkver} < 201200
+%define _qt_libdir %{qt4lib}
+%define _qt_includedir %{qt4include}
+%define _qt_docdir %{_docdir}/qt4
+%endif
+
 Name:		%{name}
 Summary:	XMPP client library based on Qt
 Version:	0.3.91
@@ -48,6 +54,8 @@ to read and enjoy the low level details.
 %package devel
 Summary:	QXmpp development files
 Group:		Development/C++
+Requires:	qt4-devel
+Requires:	%{libname} = %{version}
 
 %description devel
 QXmpp is a cross-platform C++ XMPP client library. It is based on Qt and C++.
