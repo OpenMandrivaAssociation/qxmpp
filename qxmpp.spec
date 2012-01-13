@@ -59,7 +59,7 @@ This package contains files required for development.
 %{_libdir}/libqxmpp.so
 %{_libdir}/pkgconfig/qxmpp.pc
 %{_qt_docdir}/%{name}
-%doc AUTHORS CHANGELOG LICENCE.LGPL README
+%doc AUTHORS CHANGELOG LICENSE.LGPL README
 
 #------------------------------------------------------------------------------
 
