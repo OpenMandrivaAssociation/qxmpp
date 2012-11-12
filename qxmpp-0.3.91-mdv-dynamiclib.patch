@@ -1,0 +1,25 @@
+Index: qxmpp-0.3.91/qxmpp.pri
+===================================================================
+--- qxmpp-0.3.91.orig/qxmpp.pri
++++ qxmpp-0.3.91/qxmpp.pri
+@@ -32,6 +32,6 @@ QXMPP_LIBS += $$QXMPP_INTERNAL_LIBS
+ # Path of the QXmpp library file, for expressing dependency.
+ symbian {
+ } else:unix {
+-    QXMPP_LIBRARY_FILE = $${QXMPP_LIBRARY_DIR}/lib$${QXMPP_LIBRARY_NAME}.a
++    QXMPP_LIBRARY_FILE = $${QXMPP_LIBRARY_DIR}/lib$${QXMPP_LIBRARY_NAME}.so
+ }
+ 
+Index: qxmpp-0.3.91/src/src.pro
+===================================================================
+--- qxmpp-0.3.91.orig/src/src.pro
++++ qxmpp-0.3.91/src/src.pro
+@@ -4,7 +4,7 @@ QT -= gui
+ 
+ TEMPLATE = lib
+ 
+-CONFIG += staticlib
++CONFIG += dynamiclib
+ INCLUDEPATH += $$QXMPP_INCLUDE_DIR $$QXMPP_INTERNAL_INCLUDES
+ LIBS += $$QXMPP_INTERNAL_LIBS
+ 
