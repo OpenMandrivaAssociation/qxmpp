@@ -87,3 +87,17 @@ rm -rf %{buildroot}/usr/lib/qt4/share
 %ifarch x86_64
 mv %{buildroot}/usr/lib/pkgconfig %{buildroot}%{_libdir}
 %endif
+
+
+%changelog
+* Fri Jan 13 2012 Dmitry Mikhirev <dmikhirev@mandriva.org> 0.3.91-2
++ Revision: 760708
+- release bump
+- devel package dependenciex fixed
+- some fixes for backporting
+
+* Fri Jan 13 2012 Dmitry Mikhirev <dmikhirev@mandriva.org> 0.3.91-1
++ Revision: 760691
+- mistyping in spec fixed
+- imported package qxmpp
+
