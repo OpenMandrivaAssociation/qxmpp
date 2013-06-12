@@ -1,21 +1,16 @@
-%define name	qxmpp
-%define major	1
+%define major	0
 %define libname	%mklibname %{name} %{major}
+%define devname	%mklibname %{name} -d
 
-%if %{mdkver} < 201200
-%define _qt_libdir %{qt4lib}
-%define _qt_includedir %{qt4include}
-%define _qt_docdir %{_docdir}/qt4
-%endif
-
-Name:		%{name}
 Summary:	XMPP client library based on Qt
-Version:	0.3.91
-Release:	2
+Name:		qxmpp
+Version:	0.7.5
+Release:	1
 License:	LGPLv2.1+ and Creative Commons Attribution
 Group:		System/Libraries
+Url:		http://code.google.com/p/qxmpp/
 Source0:	http://qxmpp.googlecode.com/files/%{name}-%{version}.tar.gz
-Patch0:		qxmpp-0.3.91-mdv-dynamiclib.patch
+Patch0:		qxmpp-0.6.3.1-dynamiclib.patch
 BuildRequires:	qt4-devel
 
 %description
@@ -47,27 +42,29 @@ bothered with these details. But it is always recommended to the advanced users
 to read and enjoy the low level details.
 
 %files -n %{libname}
-%_qt_libdir/libqxmpp.so.%{major}*
+%{_libdir}/libqxmpp.so.%{major}*
 
 #------------------------------------------------------------------------------
 
-%package devel
+%package -n %{devname}
 Summary:	QXmpp development files
 Group:		Development/C++
 Requires:	qt4-devel
-Requires:	%{libname} = %{version}
+Requires:	%{libname} = %{version}-%{release}
+Provides:	%{name}-devel = %{EVRD}
+Obsoletes:	%{name}-devel < 0.7.5
 
-%description devel
+%description -n %{devname}
 QXmpp is a cross-platform C++ XMPP client library. It is based on Qt and C++.
 
 This package contains files required for development.
 
-%files devel
-%{_qt_includedir}/qxmpp
+%files -n %{devname}
+%doc AUTHORS CHANGELOG LICENSE.LGPL README
+%doc %{_docdir}/%{name}
+%{_includedir}/qxmpp
 %{_libdir}/libqxmpp.so
 %{_libdir}/pkgconfig/qxmpp.pc
-%{_qt_docdir}/%{name}
-%doc AUTHORS CHANGELOG LICENSE.LGPL README
 
 #------------------------------------------------------------------------------
 
@@ -76,28 +73,12 @@ This package contains files required for development.
 %patch0 -p1
 
 %build
-%{qmake_qt4}
+%qmake_qt4 \
+	PREFIX=%{_prefix} \
+	LIBDIR=%{_lib} \
+	QMAKE_CXXFLAGS_RELEASE= 
 %make
 
 %install
 %makeinstall_std INSTALL_ROOT=%{buildroot}
-install -d %{buildroot}%{_qt_docdir}
-mv %{buildroot}/usr/lib/qt4/share/doc/qxmpp %{buildroot}%{_qt_docdir}/%{name}
-rm -rf %{buildroot}/usr/lib/qt4/share
-%ifarch x86_64
-mv %{buildroot}/usr/lib/pkgconfig %{buildroot}%{_libdir}
-%endif
-
-
-%changelog
-* Fri Jan 13 2012 Dmitry Mikhirev <dmikhirev@mandriva.org> 0.3.91-2
-+ Revision: 760708
-- release bump
-- devel package dependenciex fixed
-- some fixes for backporting
-
-* Fri Jan 13 2012 Dmitry Mikhirev <dmikhirev@mandriva.org> 0.3.91-1
-+ Revision: 760691
-- mistyping in spec fixed
-- imported package qxmpp
 
