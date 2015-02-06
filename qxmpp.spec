@@ -5,7 +5,7 @@
 Summary:	XMPP client library based on Qt
 Name:		qxmpp
 Version:	0.7.5
-Release:	1
+Release:	2
 License:	LGPLv2.1+ and Creative Commons Attribution
 Group:		System/Libraries
 Url:		http://code.google.com/p/qxmpp/
