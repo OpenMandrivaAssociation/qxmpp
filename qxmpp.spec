@@ -14,6 +14,7 @@ BuildRequires:	ninja
 BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(Qt5Core)
 BuildRequires:	cmake(Qt5Network)
+BuildRequires:	cmake(Qt5Test)
 BuildRequires:	cmake(Qt5Xml)
 
 %description
