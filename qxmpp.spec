@@ -48,9 +48,13 @@ protocol with Qt
 
 %files -n %{libname}
 #{_libdir}/libqxmpp.so.*
+%{_libdir}/libQXmppQt5.so.%{version}
+%{_libdir}/libQXmppQt5.so.4
 
 %files -n %{devname}
-#{_includedir}/qxmpp
-#{_libdir}/cmake/qxmpp
+%{_includedir}/QXmppQt5/
+%{_libdir}/cmake/QXmpp/
+%{_libdir}/cmake/QXmppQt5/
 %{_libdir}/pkgconfig/qxmpp.pc
+%{_libdir}/pkgconfig/QXmppQt5.pc
 %{_libdir}/*.so
