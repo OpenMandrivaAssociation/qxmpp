@@ -50,7 +50,7 @@ protocol with Qt
 #{_libdir}/libqxmpp.so.*
 
 %files -n %{devname}
-%{_includedir}/qxmpp
-%{_libdir}/cmake/qxmpp
+#{_includedir}/qxmpp
+#{_libdir}/cmake/qxmpp
 %{_libdir}/pkgconfig/qxmpp.pc
 %{_libdir}/*.so
