@@ -47,7 +47,7 @@ protocol with Qt
 %ninja_install -C build
 
 %files -n %{libname}
-%{_libdir}/libqxmpp.so.*
+#{_libdir}/libqxmpp.so.*
 
 %files -n %{devname}
 %{_includedir}/qxmpp
