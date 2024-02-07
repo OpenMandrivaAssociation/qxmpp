@@ -3,7 +3,7 @@
 
 Name:		qxmpp
 Version:	1.6.0
-Release:	1
+Release:	2
 Summary:	Library for using the XMPP messenging protocol with Qt
 Url:		https://github.com/qxmpp-project/qxmpp
 Source0:	https://github.com/qxmpp-project/qxmpp/archive/v%{version}/%{name}-%{version}.tar.gz
@@ -16,6 +16,11 @@ BuildRequires:	cmake(Qt5Core)
 BuildRequires:	cmake(Qt5Network)
 BuildRequires:	cmake(Qt5Test)
 BuildRequires:	cmake(Qt5Xml)
+BuildRequires:	cmake(Qca-qt5)
+
+BuildRequires:          pkgconfig(libprotobuf-c)
+BuildRequires:	pkgconfig(gstreamer-1.0)
+BuildRequires:	pkgconfig(libomemo-c)
 
 %description
 Library for using the XMPP messenging protocol with Qt
@@ -38,7 +43,10 @@ protocol with Qt
 
 %prep
 %autosetup -p1
-%cmake_kde5 -G Ninja
+%cmake_kde5 \
+            -DBUILD_OMEMO=ON \
+            -DWITH_GSTREAMER=ON \
+            -G Ninja
 
 %build
 %ninja_build -C build
@@ -50,11 +58,14 @@ protocol with Qt
 #{_libdir}/libqxmpp.so.*
 %{_libdir}/libQXmppQt5.so.%{version}
 %{_libdir}/libQXmppQt5.so.4
+%{_libdir}/libQXmppOmemoQt5.so.%{version}
+%{_libdir}/libQXmppOmemoQt5.so.4
 
 %files -n %{devname}
 %{_includedir}/QXmppQt5/
 %{_libdir}/cmake/QXmpp/
 %{_libdir}/cmake/QXmppQt5/
+%{_libdir}/cmake/QXmppOmemoQt5/
 %{_libdir}/pkgconfig/qxmpp.pc
 %{_libdir}/pkgconfig/QXmppQt5.pc
 %{_libdir}/*.so
