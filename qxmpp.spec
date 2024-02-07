@@ -3,7 +3,7 @@
 
 Name:		qxmpp
 Version:	1.6.0
-Release:	1
+Release:	2
 Summary:	Library for using the XMPP messenging protocol with Qt
 Url:		https://github.com/qxmpp-project/qxmpp
 Source0:	https://github.com/qxmpp-project/qxmpp/archive/v%{version}/%{name}-%{version}.tar.gz
@@ -38,7 +38,10 @@ protocol with Qt
 
 %prep
 %autosetup -p1
-%cmake_kde5 -G Ninja
+%cmake_kde5 \
+            -DBUILD_OMEMO=ON \
+            -DWITH_GSTREAMER=ON \
+            -G Ninja
 
 %build
 %ninja_build -C build
