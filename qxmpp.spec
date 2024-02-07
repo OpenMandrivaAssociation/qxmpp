@@ -16,6 +16,7 @@ BuildRequires:	cmake(Qt5Core)
 BuildRequires:	cmake(Qt5Network)
 BuildRequires:	cmake(Qt5Test)
 BuildRequires:	cmake(Qt5Xml)
+BuildRequires:	cmake(Qca-qt5)
 
 BuildRequires:	pkgconfig(gstreamer-1.0)
 BuildRequires:	pkgconfig(libomemo-c)
