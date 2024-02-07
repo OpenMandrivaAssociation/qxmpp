@@ -17,6 +17,9 @@ BuildRequires:	cmake(Qt5Network)
 BuildRequires:	cmake(Qt5Test)
 BuildRequires:	cmake(Qt5Xml)
 
+BuildRequires:	pkgconfig(gstreamer-1.0)
+BuildRequires:	pkgconfig(libomemo-c)
+
 %description
 Library for using the XMPP messenging protocol with Qt
 
