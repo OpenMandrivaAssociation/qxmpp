@@ -18,6 +18,7 @@ BuildRequires:	cmake(Qt5Test)
 BuildRequires:	cmake(Qt5Xml)
 BuildRequires:	cmake(Qca-qt5)
 
+BuildRequires:          pkgconfig(libprotobuf-c)
 BuildRequires:	pkgconfig(gstreamer-1.0)
 BuildRequires:	pkgconfig(libomemo-c)
 
