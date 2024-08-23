@@ -2,7 +2,7 @@
 %define devname %mklibname -d qxmpp
 
 Name:		qxmpp
-Version:	1.8.0
+Version:	1.8.1
 Release:	1
 Summary:	Library for using the XMPP messenging protocol with Qt
 Url:		https://github.com/qxmpp-project/qxmpp
