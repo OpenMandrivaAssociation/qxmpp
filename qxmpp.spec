@@ -11,6 +11,7 @@ License:	LGPLv2.1
 Group:		Applications/Productivity
 BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(Qt6Core)
+BuildRequires:	cmake(Qt6Gui)
 BuildRequires:	cmake(Qt6Network)
 BuildRequires:	cmake(Qt6Test)
 BuildRequires:	cmake(Qt6Xml)
