@@ -3,7 +3,7 @@
 %define devname %mklibname -d qxmpp
 
 Name:		qxmpp
-Version:	1.13.0
+Version:	1.16.3
 Release:	1
 Summary:	Library for using the XMPP messenging protocol with Qt
 Url:		https://invent.kde.org/libraries/qxmpp
