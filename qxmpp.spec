@@ -54,9 +54,9 @@ protocol with Qt
 %files -n %{libname}
 #{_libdir}/libqxmpp.so.*
 %{_libdir}/libQXmppQt6.so.%{version}
-%{_libdir}/libQXmppQt6.so.7
+%{_libdir}/libQXmppQt6.so.10
 %{_libdir}/libQXmppOmemoQt6.so.%{version}
-%{_libdir}/libQXmppOmemoQt6.so.7
+%{_libdir}/libQXmppOmemoQt6.so.10
 
 %files -n %{devname}
 %{_includedir}/QXmppQt6/
