@@ -8,7 +8,8 @@ Release:	1
 Summary:	Library for using the XMPP messenging protocol with Qt
 Url:		https://invent.kde.org/libraries/qxmpp
 Source0:	https://invent.kde.org/libraries/qxmpp/-/archive/v%{version}/qxmpp-v%{version}.tar.bz2
-License:	LGPLv2.1
+# WITH_ENCRYPTION links OpenSSL 3 and the binaries are LGPL-3.0-or-later.
+License:	LGPLv3+
 Group:		Applications/Productivity
 BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(Qt6Core)
@@ -20,8 +21,11 @@ BuildRequires:	cmake(Qca-qt6)
 BuildSystem:	cmake
 BuildOption:	-DQT_VERSION_MAJOR=6
 BuildOption:	-DBUILD_OMEMO=ON
+BuildOption:	-DWITH_ENCRYPTION=ON
 BuildOption:	-DWITH_GSTREAMER=ON
+BuildOption:	-DBUILD_DOCUMENTATION=OFF
 
+BuildRequires:	pkgconfig(libssl)
 BuildRequires:	pkgconfig(libprotobuf-c)
 BuildRequires:	pkgconfig(gstreamer-1.0)
 BuildRequires:	pkgconfig(libomemo-c)
